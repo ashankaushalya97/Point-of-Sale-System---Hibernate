@@ -74,16 +74,16 @@ public class ManageCustomerFormController implements Initializable {
         btnDelete.setDisable(true);
         btnSave.setDisable(true);
 
-        try {
-            List<CustomerDTO> allCustomers = customerBO.findAllCustomers();
-            ObservableList<CustomerTM> customers = tblCustomers.getItems();
-            for (CustomerDTO c : allCustomers) {
-                customers.add(new CustomerTM(c.getId(), c.getName(), c.getAddress()));
-            }
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR,"Something went wrong, please contact DEPPO").show();
-            Logger.getLogger("lk.ijse.dep.pos.controller").log(Level.SEVERE, null,e);
-        }
+//        try {
+//            List<CustomerDTO> allCustomers = customerBO.findAllCustomers();
+//            ObservableList<CustomerTM> customers = tblCustomers.getItems();
+//            for (CustomerDTO c : allCustomers) {
+//                customers.add(new CustomerTM(c.getId(), c.getName(), c.getAddress()));
+//            }
+//        } catch (Exception e) {
+//            new Alert(Alert.AlertType.ERROR,"Something went wrong, please contact DEPPO").show();
+//            Logger.getLogger("lk.ijse.dep.pos.controller").log(Level.SEVERE, null,e);
+//        }
 
         tblCustomers.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<CustomerTM>() {
             @Override

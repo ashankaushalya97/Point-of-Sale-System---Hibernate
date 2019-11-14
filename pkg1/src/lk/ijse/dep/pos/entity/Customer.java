@@ -1,11 +1,22 @@
 package lk.ijse.dep.pos.entity;
 
-public class Customer implements SuperEntity{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+public class Customer implements SuperEntity{
+    @Id
+    @Column(name = "customer_id")
     private String customerId;
     private String name;
     private String address;
 //    private Gender gender;
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders = new ArrayList<>();
 
     public Customer() {
     }
@@ -71,5 +82,21 @@ public class Customer implements SuperEntity{
                 ", address='" + address + '\'' +
 //                ", gender=" + gender +
                 '}';
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void addOrders(Order orders) {
+        orders.setCustomer(this);
+        this.orders.add(orders);
+    }
+    public void removeOrder(Order order){
+        if(order.getCustomer()!=this){
+            throw new RuntimeException("Something went wrong!");
+        }
+        order.setCustomer(null);
+        this.orders.remove(order);
     }
 }

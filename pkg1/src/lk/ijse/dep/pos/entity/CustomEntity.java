@@ -1,5 +1,7 @@
 package lk.ijse.dep.pos.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Date;
 
 public class CustomEntity implements SuperEntity {

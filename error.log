@@ -335,3 +335,174 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:58)
 	... 11 more
 
+Nov 14, 2019 3:40:52 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:864)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1707)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1217)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2189)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2220)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2015)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:768)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:385)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:323)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:58)
+	... 11 more
+
+Nov 14, 2019 3:43:23 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:29)
+	... 11 more
+
+Nov 14, 2019 3:43:57 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:29)
+	... 11 more
+
+Nov 14, 2019 3:44:36 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:29)
+	... 11 more
+
+Nov 14, 2019 3:52:47 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:29)
+	... 11 more
+
+Nov 14, 2019 3:53:52 PM lk.ijse.dep.pos.AppInitializer start
+SEVERE: null
+java.lang.RuntimeException: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:76)
+	at lk.ijse.dep.pos.db.DBConnection.getInstance(DBConnection.java:81)
+	at lk.ijse.dep.pos.AppInitializer.start(AppInitializer.java:33)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$8(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$7(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$5(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$6(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$null$10(GtkApplication.java:245)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: resources/application.properties (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at lk.ijse.dep.pos.db.DBConnection.<init>(DBConnection.java:29)
+	... 11 more
+
+Nov 14, 2019 3:58:11 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.7.Final}
+Nov 14, 2019 3:58:11 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+Nov 14, 2019 3:58:11 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Nov 14, 2019 3:58:11 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/POS-DEP4?createDatabaseIfNotExist=true]
+Nov 14, 2019 3:58:11 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+Nov 14, 2019 3:58:11 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Nov 14, 2019 3:58:11 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Nov 14, 2019 3:58:12 PM org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator initiateService
+WARN: HHH000342: Could not obtain connection to query metadata : null
+Nov 14, 2019 3:58:12 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Nov 14, 2019 3:58:12 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 1064, SQLState: 42000
+Nov 14, 2019 3:58:12 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-DEP4' at line 1

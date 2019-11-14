@@ -8,7 +8,6 @@ import lk.ijse.dep.pos.business.custom.OrderBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import lk.ijse.dep.pos.db.DBConnection;
 import lk.ijse.dep.pos.dto.CustomerDTO;
 import lk.ijse.dep.pos.dto.ItemDTO;
 import lk.ijse.dep.pos.dto.OrderDTO;
@@ -345,8 +344,8 @@ public class PlaceOrderFormController {
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(this.getClass().getResourceAsStream("/lk/ijse/dep/pos/report/order-report.jasper"));
             Map<String, Object> params = new HashMap<>();
             params.put("orderId", orderId + "");
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, DBConnection.getInstance().getConnection());
-            JasperViewer.viewReport(jasperPrint, false);
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, DBConnection.getInstance().getConnection());
+//            JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,"Something went wrong, please contact DEPPO").show();
             Logger.getLogger("lk.ijse.dep.pos.controller").log(Level.SEVERE, null,e);

@@ -8,6 +8,8 @@ import lk.ijse.dep.pos.dao.custom.CustomerDAO;
 import lk.ijse.dep.pos.dao.custom.OrderDAO;
 import lk.ijse.dep.pos.dto.CustomerDTO;
 import lk.ijse.dep.pos.entity.Customer;
+import lk.ijse.dep.pos.hibernate.HibernateUtil;
+import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,51 +20,102 @@ public class CustomerBOImpl implements CustomerBO {
     private OrderDAO orderDAO = DAOFactory.getInstance().getDAO(DAOTypes.ORDER);
 
     @Override
-    public boolean saveCustomer(CustomerDTO customer) throws Exception {
-        return customerDAO.save(new Customer(customer.getId(), customer.getName(), customer.getAddress()));
-    }
-
-    @Override
-    public boolean updateCustomer(CustomerDTO customer) throws Exception {
-        return customerDAO.update(new Customer(customer.getId(), customer.getName(), customer.getAddress()));
-    }
-
-    @Override
-    public boolean deleteCustomer(String customerId) throws Exception {
-        if (orderDAO.existsByCustomerId(customerId)){
-            throw new AlreadyExistsInOrderException("Customer already exists in an order, hence unable to delete");
+    public void saveCustomer(CustomerDTO customer) throws Exception {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+            customerDAO.save(new Customer(customer.getId(),customer.getName(),customer.getAddress()));
+            session.getTransaction().commit();
         }
-        return customerDAO.delete(customerId);
+    }
+
+    @Override
+    public void updateCustomer(CustomerDTO customer) throws Exception {
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+
+            customerDAO.update(new Customer(customer.getId(),customer.getName(),customer.getAddress()));
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Override
+    public void deleteCustomer(String customerId) throws Exception {
+
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+            if (orderDAO.existsByCustomerId(customerId)){
+                throw new AlreadyExistsInOrderException("Customer already exists in an order, hence unable to delete");
+            }
+            customerDAO.delete(customerId);
+
+            session.getTransaction().commit();
+        }
     }
 
     @Override
     public List<CustomerDTO> findAllCustomers() throws Exception {
-        List<Customer> alCustomers = customerDAO.findAll();
-        List<CustomerDTO> dtos = new ArrayList<>();
-        for (Customer customer : alCustomers) {
-            dtos.add(new CustomerDTO(customer.getCustomerId(), customer.getName(), customer.getAddress()));
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+
+            List<Customer> alCustomers = customerDAO.findAll();
+            List<CustomerDTO> dtos = new ArrayList<>();
+            for (Customer customer : alCustomers) {
+                dtos.add(new CustomerDTO(customer.getCustomerId(), customer.getName(), customer.getAddress()));
+            }
+            session.getTransaction().commit();
+            return dtos;
         }
-        return dtos;
+
     }
 
     @Override
     public String getLastCustomerId() throws Exception {
-        return customerDAO.getLastCustomerId();
+        String customerId;
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+
+            customerId = customerDAO.getLastCustomerId();
+
+            session.getTransaction().commit();
+        }
+        return customerId;
     }
 
     @Override
     public CustomerDTO findCustomer(String customerId) throws Exception {
-        Customer customer = customerDAO.find(customerId);
+
+        Customer customer;
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+            customer = customerDAO.find(customerId);
+
+            session.getTransaction().commit();
+        }
         return new CustomerDTO(customer.getCustomerId(),
                 customer.getName(), customer.getAddress());
     }
 
     @Override
     public List<String> getAllCustomerIDs() throws Exception {
-        List<Customer> customers = customerDAO.findAll();
-        List<String> ids = new ArrayList<>();
-        for (Customer customer : customers) {
-            ids.add(customer.getCustomerId());
+        List<String> ids;
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            customerDAO.setSession(session);
+            session.beginTransaction();
+
+            List<Customer> customers = customerDAO.findAll();
+            ids = new ArrayList<>();
+            for (Customer customer : customers) {
+                ids.add(customer.getCustomerId());
+            }
+
+            session.getTransaction().commit();
         }
         return ids;
     }
