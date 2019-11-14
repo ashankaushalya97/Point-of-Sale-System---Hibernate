@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Layered-POS-hibernate.iml" filepath="$PROJECT_DIR$/Layered-POS-hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pkg1/pkg1.iml" filepath="$PROJECT_DIR$/pkg1/pkg1.iml" />
+    </modules>
+  </component>
+</project>
