@@ -1,9 +1,5 @@
 package lk.ijse.dep.pos.controller;
 
-/*
-import lk.ijse.dep.pos.db.DB;
-import lk.ijse.dep.pos.db.Order;
-import lk.ijse.dep.pos.db.OrderDetail;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -22,9 +18,7 @@ import lk.ijse.dep.pos.util.OrderTM;
 
 import java.io.IOException;
 import java.net.URL;
-*/
 public class SearchOrdersFormController {
-    /*
     public TextField txtSearch;
     public TableView<OrderTM> tblOrders;
 
@@ -38,7 +32,7 @@ public class SearchOrdersFormController {
 
         ObservableList<OrderTM> olOrders = tblOrders.getItems();
 
-        for (Order order : DB.orders) {
+        /*for (Order order : DB.orders) {
             String orderId = order.getOrderId();
             String orderDate = order.getOrderDate().toString();
             String customerId = order.getCustomerId();
@@ -59,7 +53,7 @@ public class SearchOrdersFormController {
 
             OrderTM orderTM = new OrderTM(orderId, orderDate, customerId, customerName, total);
             olOrders.add(orderTM);
-        }
+        }*/
 
         ObservableList<OrderTM> olAllOrders =
                 FXCollections.observableArrayList(olOrders);
@@ -98,7 +92,7 @@ public class SearchOrdersFormController {
     }
 
     public void tblOrders_OnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        if (mouseEvent.getClickCount() == 2) {
+        /*if (mouseEvent.getClickCount() == 2) {
 
             URL resource = this.getClass().getResource("/lk.ijse.dep.pos.view/PlaceOrderForm.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(resource);
@@ -115,6 +109,6 @@ public class SearchOrdersFormController {
             ctrl.initializeForSearchOrderForm(selectedOrder.getOrderId());
 
             secondaryStage.show();
-        }
-    }*/
+        }*/
+    }
 }

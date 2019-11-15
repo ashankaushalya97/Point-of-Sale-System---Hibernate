@@ -3,7 +3,7 @@ package lk.ijse.dep.pos.hibernate;
 
 import lk.ijse.dep.pos.entity.Customer;
 import lk.ijse.dep.pos.entity.Item;
-import lk.ijse.dep.pos.entity.Order;
+import lk.ijse.dep.pos.entity.Orders;
 import lk.ijse.dep.pos.entity.OrderDetail;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -26,7 +26,7 @@ public class HibernateUtil {
         // (2)
         Metadata metadata = new MetadataSources(standardRegistry)
                 .addAnnotatedClass(Customer.class)
-                .addAnnotatedClass(Order.class)
+                .addAnnotatedClass(Orders.class)
                 .addAnnotatedClass(Item.class)
                 .addAnnotatedClass(OrderDetail.class)
                 .getMetadataBuilder()

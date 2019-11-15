@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 public class OrderDetail implements SuperEntity{
     @EmbeddedId
-    @Id
     private OrderDetailPK orderDetailPK;
     private int qty;
     @Column(name = "unit_price")
@@ -13,7 +12,7 @@ public class OrderDetail implements SuperEntity{
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     @JoinColumn(name = "order_id",referencedColumnName = "id",insertable = false,updatable = false)
     private
-    Order order;
+    Orders orders;
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     @JoinColumn(name = "item_code",referencedColumnName = "code",insertable = false,updatable = false)
     private
@@ -67,12 +66,12 @@ public class OrderDetail implements SuperEntity{
                 '}';
     }
 
-    public Order getOrder() {
-        return order;
+    public Orders getOrders() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrders(Orders orders) {
+        this.orders = orders;
     }
 
     public Item getItem() {

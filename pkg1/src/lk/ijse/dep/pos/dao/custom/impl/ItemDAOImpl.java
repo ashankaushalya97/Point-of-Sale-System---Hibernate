@@ -15,12 +15,12 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public String getLastItemCode() throws Exception {
-        return (String) session.createNativeQuery("SELECT code FROM Item ORDER BY DESC LIMIT 1").uniqueResult();
+        return (String) session.createNativeQuery("SELECT code FROM Item ORDER BY code DESC LIMIT 1").uniqueResult();
     }
 
     @Override
     public List<Item> findAll() throws Exception {
-        return session.createNativeQuery("FROM Item",Item.class).list();
+        return session.createQuery("FROM Item",Item.class).list();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public void delete(String itemCode) throws Exception {
-        session.delete(itemCode,Item.class);
+        session.delete(session.load(Item.class,itemCode));
     }
 
     @Override

@@ -171,6 +171,7 @@ public class ManageItemFormController implements Initializable {
         if (buttonType.get() == ButtonType.YES) {
             ItemTM selectedItem = tblItems.getSelectionModel().getSelectedItem();
             try {
+                System.out.println(selectedItem.getCode());
                 itemBO.deleteItem(selectedItem.getCode());
                 tblItems.getItems().remove(selectedItem);
             }catch (AlreadyExistsInOrderException e){

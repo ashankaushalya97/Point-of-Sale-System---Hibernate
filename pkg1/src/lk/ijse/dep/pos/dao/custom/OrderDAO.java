@@ -1,9 +1,9 @@
 package lk.ijse.dep.pos.dao.custom;
 
 import lk.ijse.dep.pos.dao.CrudDAO;
-import lk.ijse.dep.pos.entity.Order;
+import lk.ijse.dep.pos.entity.Orders;
 
-public interface OrderDAO extends CrudDAO<Order, Integer> {
+public interface OrderDAO extends CrudDAO<Orders, Integer> {
 
     int getLastOrderId() throws Exception;
 

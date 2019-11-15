@@ -46,6 +46,7 @@ public class CustomerBOImpl implements CustomerBO {
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             customerDAO.setSession(session);
+            orderDAO.setSession(session);
             session.beginTransaction();
             if (orderDAO.existsByCustomerId(customerId)){
                 throw new AlreadyExistsInOrderException("Customer already exists in an order, hence unable to delete");
@@ -75,7 +76,7 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Override
     public String getLastCustomerId() throws Exception {
-        String customerId;
+        String customerId=null;
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             customerDAO.setSession(session);
             session.beginTransaction();

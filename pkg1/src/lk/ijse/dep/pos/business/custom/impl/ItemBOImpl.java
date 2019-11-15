@@ -47,11 +47,12 @@ public class ItemBOImpl implements ItemBO {
     public void deleteItem(String itemCode) throws Exception {
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             itemDAO.setSession(session);
+            orderDetailDAO.setSession(session);
             session.beginTransaction();
-
             if (orderDetailDAO.existsByItemCode(itemCode)){
                 throw new AlreadyExistsInOrderException("Item already exists in an order, hence unable to delete");
             }
+            System.out.println("Record not not exist in orderDetails");
             itemDAO.delete(itemCode);
 
             session.getTransaction().commit();
@@ -60,22 +61,20 @@ public class ItemBOImpl implements ItemBO {
 
     @Override
     public List<ItemDTO> findAllItems() throws Exception {
-        List<Item> allItems;
-        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             itemDAO.setSession(session);
             session.beginTransaction();
-            allItems = itemDAO.findAll();
-
+            List<Item> allItems = itemDAO.findAll();
+            List<ItemDTO> dtos = new ArrayList<>();
+            for (Item item : allItems) {
+                dtos.add(new ItemDTO(item.getCode(),
+                        item.getDescription(),
+                        item.getQtyOnHand(),
+                        item.getUnitPrice()));
+            }
             session.getTransaction().commit();
+            return dtos;
         }
-        List<ItemDTO> dtos = new ArrayList<>();
-        for (Item item : allItems) {
-            dtos.add(new ItemDTO(item.getCode(),
-                    item.getDescription(),
-                    item.getQtyOnHand(),
-                    item.getUnitPrice()));
-        }
-        return dtos;
     }
 
     @Override

@@ -12,7 +12,6 @@ import lk.ijse.dep.pos.entity.*;
 import lk.ijse.dep.pos.hibernate.HibernateUtil;
 import org.hibernate.Session;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +47,7 @@ public class OrderBOImpl implements OrderBO {
             session.beginTransaction();
 
             int oId = order.getId();
-            orderDAO.save(new Order(oId,new java.sql.Date(new Date().getTime()),session.load(Customer.class,order.getCustomerId())));
+            orderDAO.save(new Orders(oId,new java.sql.Date(new Date().getTime()),session.load(Customer.class,order.getCustomerId())));
 
             for (OrderDetailDTO orderDetail : order.getOrderDetails()) {
                 orderDetailDAO.save(new OrderDetail(oId,orderDetail.getCode(),orderDetail.getQty(),orderDetail.getUnitPrice()));

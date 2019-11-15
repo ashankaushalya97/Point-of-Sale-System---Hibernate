@@ -16,7 +16,7 @@ public class Customer implements SuperEntity{
     private String address;
 //    private Gender gender;
     @OneToMany(mappedBy = "customer")
-    private List<Order> orders = new ArrayList<>();
+    private List<Orders> orders = new ArrayList<>();
 
     public Customer() {
     }
@@ -84,19 +84,19 @@ public class Customer implements SuperEntity{
                 '}';
     }
 
-    public List<Order> getOrders() {
+    public List<Orders> getOrders() {
         return orders;
     }
 
-    public void addOrders(Order orders) {
+    public void addOrders(Orders orders) {
         orders.setCustomer(this);
         this.orders.add(orders);
     }
-    public void removeOrder(Order order){
-        if(order.getCustomer()!=this){
+    public void removeOrder(Orders orders){
+        if(orders.getCustomer()!=this){
             throw new RuntimeException("Something went wrong!");
         }
-        order.setCustomer(null);
-        this.orders.remove(order);
+        orders.setCustomer(null);
+        this.orders.remove(orders);
     }
 }

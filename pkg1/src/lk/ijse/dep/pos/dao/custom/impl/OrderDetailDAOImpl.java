@@ -41,7 +41,8 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 
     @Override
     public boolean existsByItemCode(String itemCode) throws Exception {
-        return session.createNativeQuery("SELECT  * FROM OrderDetail Where item_code=?").setParameter(1,itemCode).uniqueResult() !=null?true:false;
+        System.out.println(itemCode);
+        return session.createNativeQuery("SELECT  * FROM OrderDetail Where item_code=?1").setParameter(1,itemCode).uniqueResult()!=null;
     }
 
     @Override

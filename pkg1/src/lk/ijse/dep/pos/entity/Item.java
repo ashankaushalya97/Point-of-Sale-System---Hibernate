@@ -11,9 +11,9 @@ public class Item implements SuperEntity{
     private String description;
     @Column(name = "unit_price")
     private double unitPrice;
-    @Column(name = "unit_price")
+    @Column(name = "qty_on_hand")
     private int qtyOnHand;
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
+    @OneToMany(mappedBy = "item", cascade = {CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     private
     List<OrderDetail> orderDetails = new ArrayList<>();
 

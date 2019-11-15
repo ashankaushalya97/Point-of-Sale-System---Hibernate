@@ -16,13 +16,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public String getLastCustomerId() throws Exception {
-        return (String) session.createNativeQuery("SELECT customer_id FROM Customer order by desc LIMIT 1 ").uniqueResult();
+        return (String) session.createNativeQuery("SELECT customer_id FROM Customer order by customer_id desc LIMIT 1 ").uniqueResult();
     }
 
     @Override
     public List<Customer> findAll() throws Exception {
 
-        return session.createNativeQuery("from Customer",Customer.class).list();
+        return session.createQuery("from Customer",Customer.class).list();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void delete(String s) throws Exception {
-        session.delete(s,Customer.class);
+        session.delete(session.load(Customer.class,s));
     }
 
     @Override
