@@ -9,8 +9,6 @@ import java.util.List;
 
 public class OrderDAOImpl extends CrudDAOImpl<Orders,Integer> implements OrderDAO {
 
-    private Session session;
-
     @Override
     public int getLastOrderId() throws Exception {
         return (int) session.createNativeQuery("Select id FROM Orders Order BY id DESC LIMIT 1").uniqueResult();

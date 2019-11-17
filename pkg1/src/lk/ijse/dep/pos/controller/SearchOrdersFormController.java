@@ -36,11 +36,11 @@ public class SearchOrdersFormController {
         tblOrders.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("customerId"));
         tblOrders.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("customerName"));
         tblOrders.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("total"));
-
+        tblOrders.getItems().clear();
         ObservableList<OrderTM> olOrders = tblOrders.getItems();
 
         try {
-            List<OrderDTO2> orderInfo = orderBO.getOrderInfo("");
+            List<OrderDTO2> orderInfo = orderBO.getOrderInfo();
             for (OrderDTO2 orderDTO2 : orderInfo) {
                 olOrders.add(new OrderTM(orderDTO2.getOrderId(),String.valueOf(orderDTO2.getOrderDate()),orderDTO2.getCustomerId(),orderDTO2.getCustomerName(),orderDTO2.getTotal()));
             }
@@ -80,20 +80,29 @@ public class SearchOrdersFormController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-//                String searchText = txtSearch.getText();
-//
-//                ObservableList<OrderTM> tempOrders = FXCollections.observableArrayList();
-//
-//                for (OrderTM order : olAllOrders) {
-//                    if (order.getOrderId().contains(searchText) ||
-//                            order.getOrderDate().contains(searchText) ||
-//                            order.getCustomerId().contains(searchText) ||
-//                            order.getCustomerName().contains(searchText)) {
-//                        tempOrders.add(order);
-//                    }
-//                }
-//
-//                tblOrders.setItems(tempOrders);
+                String searchText = txtSearch.getText();
+
+                if(searchText.equals(null) || searchText.equals("")){
+                    initialize();
+                    return;
+                }
+
+                ObservableList<OrderTM> tempOrders = tblOrders.getItems();
+
+                List<OrderDTO2> orderInfo = null;
+                try {
+                    tblOrders.getItems().clear();
+                    orderInfo = orderBO.getSearchInfo(searchText);
+                    for (OrderDTO2 orderDTO2 : orderInfo) {
+                        System.out.println("search");
+                        tempOrders.add(new OrderTM(orderDTO2.getOrderId(),String.valueOf(orderDTO2.getOrderDate()),orderDTO2.getCustomerId(),orderDTO2.getCustomerName(),orderDTO2.getTotal()));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                tblOrders.setItems(tempOrders);
             }
         });
 

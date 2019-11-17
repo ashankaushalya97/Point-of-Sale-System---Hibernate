@@ -13,41 +13,10 @@ import java.util.List;
 
 public class OrderDetailDAOImpl extends CrudDAOImpl<OrderDetail,OrderDetailPK> implements OrderDetailDAO {
 
-    private Session session;
-
-    @Override
-    public List<OrderDetail> findAll() throws Exception {
-        return session.createQuery("FROM OrderDetail",OrderDetail.class).list();
-    }
-
-    @Override
-    public OrderDetail find(OrderDetailPK orderDetailPK) throws Exception {
-        return session.get(OrderDetail.class,orderDetailPK);
-    }
-
-    @Override
-    public void save(OrderDetail orderDetail) throws Exception {
-        session.save(orderDetail);
-    }
-
-    @Override
-    public void update(OrderDetail orderDetail) throws Exception {
-        session.merge(orderDetail);
-    }
-
-    @Override
-    public void delete(OrderDetailPK orderDetailPK) throws Exception {
-        session.delete(session.load(OrderDetail.class,orderDetailPK));
-    }
-
     @Override
     public boolean existsByItemCode(String itemCode) throws Exception {
         System.out.println(itemCode);
         return session.createNativeQuery("SELECT  * FROM OrderDetail Where item_code=?1").setParameter(1,itemCode).uniqueResult()!=null;
     }
 
-    @Override
-    public void setSession(Session session) {
-        this.session=session;
-    }
 }

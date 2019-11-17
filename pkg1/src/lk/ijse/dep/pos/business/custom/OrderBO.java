@@ -12,6 +12,9 @@ public interface OrderBO extends SuperBO {
 
     void placeOrder(OrderDTO orderDTO) throws Exception;
 
-    List<OrderDTO2> getOrderInfo(String query) throws Exception;
+    List<OrderDTO2> getOrderInfo() throws Exception;
+
+    List<OrderDTO2> getSearchInfo(String searchText) throws Exception;
+
 
 }
