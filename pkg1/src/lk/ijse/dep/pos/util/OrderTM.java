@@ -1,7 +1,7 @@
 package lk.ijse.dep.pos.util;
 
 public class OrderTM {
-    private String orderId;
+    private int orderId;
     private String orderDate;
     private String customerId;
     private String customerName;
@@ -10,7 +10,7 @@ public class OrderTM {
     public OrderTM() {
     }
 
-    public OrderTM(String orderId, String orderDate, String customerId, String customerName, double total) {
+    public OrderTM(int orderId, String orderDate, String customerId, String customerName, double total) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.customerId = customerId;
@@ -18,11 +18,11 @@ public class OrderTM {
         this.total = total;
     }
 
-    public String getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 

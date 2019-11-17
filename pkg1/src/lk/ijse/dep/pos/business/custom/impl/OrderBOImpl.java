@@ -1,6 +1,7 @@
 package lk.ijse.dep.pos.business.custom.impl;
 
 import lk.ijse.dep.pos.business.custom.OrderBO;
+import lk.ijse.dep.pos.business.exception.AlreadyExistsInOrderException;
 import lk.ijse.dep.pos.dao.DAOFactory;
 import lk.ijse.dep.pos.dao.DAOTypes;
 import lk.ijse.dep.pos.dao.custom.*;
@@ -65,12 +66,19 @@ public class OrderBOImpl implements OrderBO {
 
     @Override
     public List<OrderDTO2> getOrderInfo(String query) throws Exception {
-        List<CustomEntity> ordersInfo = queryDAO.getOrdersInfo(query + "%");
-        List<OrderDTO2> dtos = new ArrayList<>();
-        for (CustomEntity info : ordersInfo) {
-            dtos.add(new OrderDTO2(info.getOrderId(),
-                    info.getOrderDate(),info.getCustomerId(),info.getCustomerName(),info.getOrderTotal()));
-        }
-        return dtos;
+//        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+//            queryDAO.setSession(session);
+//            session.beginTransaction();
+//
+//            List<CustomEntity> ordersInfo = queryDAO.getOrdersInfo(query + "%");
+//            List<OrderDTO2> dtos = new ArrayList<>();
+//            for (CustomEntity info : ordersInfo) {
+//                dtos.add(new OrderDTO2(info.getOrderId(),
+//                        info.getOrderDate(),info.getCustomerId(),info.getCustomerName(),info.getOrderTotal()));
+//            }
+//            session.getTransaction().commit();
+//            return dtos;
+//        }
+        return null;
     }
 }

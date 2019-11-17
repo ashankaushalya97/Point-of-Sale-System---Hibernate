@@ -1,12 +1,13 @@
 package lk.ijse.dep.pos.dao.custom.impl;
 
+import lk.ijse.dep.pos.dao.CrudDAOImpl;
 import lk.ijse.dep.pos.dao.custom.OrderDAO;
 import lk.ijse.dep.pos.entity.Orders;
 import org.hibernate.Session;
 
 import java.util.List;
 
-public class OrderDAOImpl implements OrderDAO {
+public class OrderDAOImpl extends CrudDAOImpl<Orders,Integer> implements OrderDAO {
 
     private Session session;
 
@@ -20,33 +21,4 @@ public class OrderDAOImpl implements OrderDAO {
         return session.createNativeQuery("SELECT * FROM Orders WHERE customer_id=?1").setParameter(1,customerId).uniqueResult()!=null;
     }
 
-    @Override
-    public List<Orders> findAll() throws Exception {
-        return session.createQuery("FROM Orders", Orders.class).list();
-    }
-
-    @Override
-    public Orders find(Integer orderId) throws Exception {
-        return session.find(Orders.class,orderId);
-    }
-
-    @Override
-    public void  save(Orders orders) throws Exception {
-         session.save(orders);
-    }
-
-    @Override
-    public void update(Orders orders) throws Exception {
-        session.merge(orders);
-    }
-
-    @Override
-    public void delete(Integer orderId) throws Exception {
-        session.delete(session.load(Orders.class,orderId));
-    }
-
-    @Override
-    public void setSession(Session session) {
-        this.session=session;
-    }
 }

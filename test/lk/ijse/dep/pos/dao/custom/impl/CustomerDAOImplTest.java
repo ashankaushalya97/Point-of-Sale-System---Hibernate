@@ -16,7 +16,6 @@ class CustomerDAOImplTest {
             this.g = g;
         }
 
-
     }
 
     public static void main(String[] args) throws Exception {
@@ -34,6 +33,7 @@ class CustomerDAOImplTest {
 
 
     void findAll() throws Exception {
+//        new CustomerDAOImpl().sa
 //        new CustomerDAOImpl().findAll().forEach(System.out::println);
     }
 

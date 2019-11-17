@@ -1,5 +1,6 @@
 package lk.ijse.dep.pos.dao.custom.impl;
 
+import lk.ijse.dep.pos.dao.CrudDAOImpl;
 import lk.ijse.dep.pos.dao.CrudUtil;
 import lk.ijse.dep.pos.dao.custom.OrderDetailDAO;
 import lk.ijse.dep.pos.entity.OrderDetail;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDetailDAOImpl implements OrderDetailDAO {
+public class OrderDetailDAOImpl extends CrudDAOImpl<OrderDetail,OrderDetailPK> implements OrderDetailDAO {
 
     private Session session;
 

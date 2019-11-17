@@ -13,14 +13,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import lk.ijse.dep.pos.util.CustomerTM;
+import lk.ijse.dep.pos.business.BOFactory;
+import lk.ijse.dep.pos.business.BOTypes;
+import lk.ijse.dep.pos.business.custom.OrderBO;
+import lk.ijse.dep.pos.dto.OrderDTO2;
 import lk.ijse.dep.pos.util.OrderTM;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
+import java.util.List;
+
 public class SearchOrdersFormController {
     public TextField txtSearch;
     public TableView<OrderTM> tblOrders;
+    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
 
     public void initialize() {
         // Let's map
@@ -31,6 +38,16 @@ public class SearchOrdersFormController {
         tblOrders.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("total"));
 
         ObservableList<OrderTM> olOrders = tblOrders.getItems();
+
+        try {
+            List<OrderDTO2> orderInfo = orderBO.getOrderInfo("");
+            for (OrderDTO2 orderDTO2 : orderInfo) {
+                olOrders.add(new OrderTM(orderDTO2.getOrderId(),String.valueOf(orderDTO2.getOrderDate()),orderDTO2.getCustomerId(),orderDTO2.getCustomerName(),orderDTO2.getTotal()));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /*for (Order order : DB.orders) {
             String orderId = order.getOrderId();
@@ -55,6 +72,7 @@ public class SearchOrdersFormController {
             olOrders.add(orderTM);
         }*/
 
+
         ObservableList<OrderTM> olAllOrders =
                 FXCollections.observableArrayList(olOrders);
 
@@ -62,20 +80,20 @@ public class SearchOrdersFormController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 
-                String searchText = txtSearch.getText();
-
-                ObservableList<OrderTM> tempOrders = FXCollections.observableArrayList();
-
-                for (OrderTM order : olAllOrders) {
-                    if (order.getOrderId().contains(searchText) ||
-                            order.getOrderDate().contains(searchText) ||
-                            order.getCustomerId().contains(searchText) ||
-                            order.getCustomerName().contains(searchText)) {
-                        tempOrders.add(order);
-                    }
-                }
-
-                tblOrders.setItems(tempOrders);
+//                String searchText = txtSearch.getText();
+//
+//                ObservableList<OrderTM> tempOrders = FXCollections.observableArrayList();
+//
+//                for (OrderTM order : olAllOrders) {
+//                    if (order.getOrderId().contains(searchText) ||
+//                            order.getOrderDate().contains(searchText) ||
+//                            order.getCustomerId().contains(searchText) ||
+//                            order.getCustomerName().contains(searchText)) {
+//                        tempOrders.add(order);
+//                    }
+//                }
+//
+//                tblOrders.setItems(tempOrders);
             }
         });
 
@@ -83,7 +101,7 @@ public class SearchOrdersFormController {
 
     @FXML
     private void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/lk.ijse.dep.pos.view/MainForm.fxml");
+        URL resource = this.getClass().getResource("/lk/ijse/dep/pos/view/MainForm.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.txtSearch.getScene().getWindow());
