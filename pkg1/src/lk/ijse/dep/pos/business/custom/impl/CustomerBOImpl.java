@@ -24,7 +24,9 @@ public class CustomerBOImpl implements CustomerBO {
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
             customerDAO.setSession(session);
             session.beginTransaction();
+
             customerDAO.save(new Customer(customer.getId(),customer.getName(),customer.getAddress()));
+
             session.getTransaction().commit();
         }
     }

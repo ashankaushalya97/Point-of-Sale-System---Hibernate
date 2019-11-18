@@ -4384,3 +4384,39 @@ Nov 17, 2019 8:18:42 PM org.hibernate.engine.transaction.jta.platform.internal.J
 INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Nov 17, 2019 8:19:04 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
 INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/POSDEP4?createDatabaseIfNotExist=true]
+Nov 18, 2019 3:45:45 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.4.7.Final}
+Nov 18, 2019 3:45:45 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+Nov 18, 2019 3:45:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Nov 18, 2019 3:45:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/POSDEP4?createDatabaseIfNotExist=true]
+Nov 18, 2019 3:45:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+Nov 18, 2019 3:45:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Nov 18, 2019 3:45:45 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Nov 18, 2019 3:45:46 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+Nov 18, 2019 3:45:47 PM org.hibernate.mapping.RootClass checkCompositeIdentifier
+WARN: HHH000038: Composite-id class does not override equals(): lk.ijse.dep.pos.entity.OrderDetailPK
+Nov 18, 2019 3:45:47 PM org.hibernate.mapping.RootClass checkCompositeIdentifier
+WARN: HHH000039: Composite-id class does not override hashCode(): lk.ijse.dep.pos.entity.OrderDetailPK
+Nov 18, 2019 3:45:47 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7bae491f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Nov 18, 2019 3:45:48 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Nov 18, 2019 3:45:51 PM net.sf.jasperreports.extensions.DefaultExtensionsRegistry loadRegistries
+WARNING: Extension resource jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-javaflow-6.9.0.jar!/jasperreports_extension.properties was found to be a duplicate of jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-6.9.0.jar!/jasperreports_extension.properties in classloader sun.misc.Launcher$AppClassLoader@18b4aac2
+Nov 18, 2019 3:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from URL [jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-chart-themes-6.9.0.jar!/net/sf/jasperreports/chartthemes/spring/beans/chartThemesBeans.xml]
+Nov 18, 2019 3:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from URL [jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-chart-themes-6.9.0.jar!/net/sf/jasperreports/chartthemes/spring/beans/chartConstantsBean.xml]
+Nov 18, 2019 3:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from URL [jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-chart-themes-6.9.0.jar!/net/sf/jasperreports/chartthemes/spring/beans/defaultChartPropertiesBean.xml]
+Nov 18, 2019 3:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from URL [jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-chart-themes-6.9.0.jar!/net/sf/jasperreports/chartthemes/spring/beans/eyeCandySixtiesChartPropertiesBean.xml]
+Nov 18, 2019 3:45:51 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from URL [jar:file:/home/ash/IdeaProjects/Layered-POS-hibernate/lib/jasperReports/jasperreports-chart-themes-6.9.0.jar!/net/sf/jasperreports/chartthemes/spring/beans/aegeanChartPropertiesBean.xml]
